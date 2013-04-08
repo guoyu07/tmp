@@ -14,9 +14,9 @@
 
 void str_cli(FILE *fp, int sockfd) {
     char sendline[MAXLINE], readline[MAXLINE];
-    int n, maxfd;
+    int n, maxfd, re;
     fd_set rset;
-
+/*
     while (1) {
         FD_SET(fileno(fp), &rset);
         FD_SET(sockfd, &rset);
@@ -39,8 +39,7 @@ void str_cli(FILE *fp, int sockfd) {
         }
 
     };
-
-    /*
+*/
     while (Fgets(sendline, MAXLINE, fp) != NULL) {
         Writen(sockfd, sendline, strlen(sendline));
         if (Readline(sockfd, readline, MAXLINE) == 0) {
@@ -48,7 +47,6 @@ void str_cli(FILE *fp, int sockfd) {
         }
         Fputs(readline, stdout);
     }
-    */
 
 }
 
