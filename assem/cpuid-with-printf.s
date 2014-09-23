@@ -1,4 +1,3 @@
-.code32
 
 .section .data
 output:
@@ -13,12 +12,12 @@ _start:
     movl $0, %eax
     cpuid
     movl $buffer, %edi
-    movl %ebx, %edi
+    movl %ebx, (%edi)
     movl %edx, 4(%edi)
     movl %ecx, 8(%edi)
     push $buffer
     push $output
     call printf
     addl $8, %esp
-    pushw $0
+    push $0
     call exit
